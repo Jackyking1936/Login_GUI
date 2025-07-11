@@ -8,6 +8,8 @@ from fubon_neo.sdk import FubonSDK
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QLineEdit, QGridLayout, QVBoxLayout, QMessageBox, QFileDialog
 from PySide6.QtGui import QImage, QPixmap, QIcon, QFont
 from PySide6.QtCore import Qt
+import os
+import certifi
 
 class LoginForm(QWidget):
     def __init__(self, fubon_sdk):
@@ -73,6 +75,8 @@ class LoginForm(QWidget):
         layout_all.addLayout(layout)
         self.setLayout(layout_all)
         
+        os.environ['SSL_CERT_FILE'] = certifi.where()
+
         login_btn.clicked.connect(self.check_password)
         folder_btn.clicked.connect(self.showDialog)
 
