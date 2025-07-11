@@ -6,7 +6,7 @@ import os, base64
 #     print(base64_data)#输出生成的base64码
 
 from PIL import Image
-filename = r'trail.png'
+filename = r'app.png'
 img = Image.open(filename)
 
 img.save('fubon.ico')
